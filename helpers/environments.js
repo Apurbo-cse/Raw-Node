@@ -1,28 +1,29 @@
-
-
 // dependencies
 
-
-// modules scaffolding
-
+// module scaffolding
 const environments = {};
 
+// staging environment
 environments.staging = {
-     port : 3000,
-     envName : 'staging'
-}
+  port: 3000,
+  envName: "staging",
+};
 
+// production environment
 environments.production = {
-     port : 5000,
-     envName : 'production'
-}
+  port: 5000,
+  envName: "production",
+};
 
-
-// determine which environments was passed
-const currentEnvironments = typeof(process.env.NODE_ENV) ===  'string' ? process.env.NODE_ENV : 'staging',
-
+// determine which environment was passed
+const currentEnvironment =
+  typeof process.env.NODE_ENV === "string" ? process.env.NODE_ENV : "staging";
 
 // export corresponding environment object
-const environmentToExport = typeof(environments[currentEnvironments]) === 'object' ? environments[currentEnvironments] : environments.staging;
+const environmentToExport =
+  typeof environments[currentEnvironment] === "object"
+    ? environments[currentEnvironment]
+    : environments.staging;
 
-module.exports = environmentToExport ;
+// export module
+module.exports = environmentToExport;
